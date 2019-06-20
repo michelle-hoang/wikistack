@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
 const models = require('./models');
+//const wikiRouter = require('./routes/wiki');
+//const userRouter = require('./routes/user');
 
 // db.authenticate().
 // then(() => {
@@ -12,7 +14,8 @@ const app = express();
 app.use(express.static(__dirname + "/public"));
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: false }));
-
+app.use ('/wiki', require ('./routes/wiki'));
+//app.use ('/user', require('./routes/user'));
 app.get("", (req, res) => {
     res.send("");
 })
