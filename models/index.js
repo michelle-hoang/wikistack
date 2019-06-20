@@ -14,7 +14,7 @@ const Page = db.define('pages' , {
         type: Sequelize.TEXT
     },
     status: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.ENUM('open', 'closed')
     }
 });
 
