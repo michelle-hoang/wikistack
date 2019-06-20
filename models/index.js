@@ -18,6 +18,12 @@ const Page = db.define('pages' , {
     }
 });
 
+function slugify (title) {
+    return title.replace(/\s+/g, '_').replace(/\W/g, '');
+};
+
+Page.beforeValidate((page) => {page.slug = slugify(page.title)})
+
 const User = db.define('users' , {
     name: {
         type: Sequelize.STRING
