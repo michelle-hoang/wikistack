@@ -5,7 +5,6 @@ const { addPage } = require('../views');
 
 router.get("/add",  (req, res, next) => {
     try {
-        console.log(addPage());
         res.send(addPage());
     } catch (error) {
         next(error);
@@ -13,11 +12,7 @@ router.get("/add",  (req, res, next) => {
 });
 
 router.get("/", (req, res, next) => {
-    try {
-        res.send("we're in the get statement");
-    } catch (error) {
-        next(error)
-    }
+    res.redirect('/wiki');
 });
 
 router.post ("/", (req, res, next) => {
